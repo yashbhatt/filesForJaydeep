@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+        <style>
+            img {
+                margin: 25px;
+            }
+        </style>
+    </head>
+    <body>        
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="task" placeholder="Task">
+        <button onclick="add_list()" >Add</button>
+
+        <table border="2px" id="table">
+            <tr>
+                <th>Sr No.</th>
+                <th>Name</th>
+                <th>Task</th>
+                <th>Status</th>
+            </tr>
+
+            
+
+
+            <!-- javascript will add stuff here  -->
+        </table>
+
+
+        <input type="text" id="get_input">
+        <button onclick="list_it()">CLick To List</button>
+        <ul>
+            <div id="add_here"></div>
+        </ul>
+
+        <hr>
+
+        <img src="./media/1.jpg" height="400px" width="400px" alt="" onmouseover="changer1 (this)" onmouseout="changer2 (this)">
+        <img src="./media/1.jpg" height="400px" width="400px" alt="" onmouseover="changer1 (this)" onmouseout="changer2 (this)">
+        <img src="./media/1.jpg" height="400px" width="400px" alt="" onmouseover="changer1 (this)" onmouseout="changer2 (this)">
+        <img src="./media/1.jpg" height="400px" width="400px" alt="" onmouseover="changer1 (this)" onmouseout="changer2 (this)">
+        <img src="./media/1.jpg" height="400px" width="400px" alt="" onmouseover="changer1 (this)" onmouseout="changer2 (this)">
+        <img src="./media/1.jpg" height="400px" width="400px" alt="" onmouseover="changer1 (this)" onmouseout="changer2 (this)">
+
+        <script>
+            function random_no () {
+                return Math.floor((Math.random() * 6) + 1);
+
+            }
+
+
+            var previous_image;
+            function changer1 (a) {
+                previous_image = a.getAttribute('src');
+                var rand = random_no();
+                a.setAttribute('src' , './media/' + rand +'.jpg');
+            }
+            function changer2 (b) {
+                b.setAttribute('src' , String(previous_image));
+            }
+
+
+
+
+            function list_it () {
+                var list_item = document.getElementById('get_input').value;
+                document.getElementById('add_here').innerHTML += '<li>' + list_item + '</li>';
+            }
+
+        sr_count = 0;
+        
+            var original1 =  document.getElementById('name');
+            var original2 =  document.getElementById('task');
+
+        function add_list () {
+            sr_count ++ ;
+            var input_name = document.getElementById('name').value;
+            var input_task = document.getElementById('task').value;             
+            document.getElementById('table').innerHTML += '<tr id = \'another_row\'> <td id =' + sr_count +'>' + sr_count + '</td> <td>' + input_name + '</td> <td>' + input_task + '</td> <td><input type = \'button\' value = \'Done\' onclick = \'task_status (this)\'></td></tr>';
+            original1.value = '';
+            original2.value = '';
+        }
+
+        function task_status (a) {
+            //console.log(a);
+            //contains the last button in every row 
+
+            var papa = a.closest('tr');
+            papa.style.textDecoration = 'line-through';
+
+
+
+
+
+            // var a = document.getElementById(sr_count);
+            // var b = a.closest('tr').style.textDecoration = 'line-through' ;
+
+        }
+
+
+        </script>
+    </body>
+</html>

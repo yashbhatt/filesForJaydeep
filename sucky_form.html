@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            #die {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" onsubmit="return checker()">
+            <input type="checkbox" id="check">
+            <p id="die"></p>
+            <br>
+            <input type="radio" name="memes" id="rad1">
+            <input type="radio" name="memes" id="rad2">
+            <p id="die_hard1"></p>
+
+
+            <button type="submit">Submit!</button>
+        </form>
+
+
+        <script>
+            var checkbox_status = document.getElementById('check').checked;
+            var rad1_status = document.getElementById('rad1').checked;
+            var rad2_status = document.getElementById('rad2').checked;
+ 
+            function checker () {
+                flag = true;
+
+                if (checkbox_status == false) {
+                    document.getElementById('die').innerText = 'you gotta check';
+                    flag = false;
+                }
+
+                if (rad1_status == false) {
+                    document.getElementById('die_hard1').innerText = 'Select Atleast One';
+                    flag = false;
+                }
+                 return flag;
+            }
+        </script>
+    </body>
+</html>

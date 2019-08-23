@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+
+    <script>
+//             function f1(a){
+// console.log(a);
+//                    // alert(234); 
+//             }
+
+    function foo () {
+        console.log(this.bar);
+        //finds """this""".bar
+    }
+
+    var bar = 'global';
+    //this is in the global scoope so when we call foo(); this will be taken in.
+
+    var obj1 = {
+        bar : 'obj1',
+        //returns the string 'obj1'
+        foo:foo
+        //boomerang to the function foo
+    };
+
+    var obj2 = {
+        bar: 'obj2'
+        //returns the string obj2
+    };
+
+    foo();
+    obj1.foo();
+    foo.call(obj2);
+    new foo();
+//this is setting the foo to be undefined because 
+// when we execute new foo() then it referances the foo function 
+//it tries to console.log using the this.bar 
+//fails to find anything with bar 
+//as an error this throws undefined 
+
+    </script>
+    <body>
+        <h1>yea bwoiiiiiiiii</h1>
+        <button onclick =" f1(this);"  >Button 1</button>
+        <button onclick =" f1(this);"  >Button 2</button>
+        <button onclick =" f1(this);"  >Button 3</button>
+
+    </body>
+</html>

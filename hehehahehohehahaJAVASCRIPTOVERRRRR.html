@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+        
+        <!-- second exercise -->
+        <P class="changer">Para 1</P>
+        <P class="changer">Para 2</P>
+        <P class="changer">Para 3</P>
+        <button onclick="magic ()">Click For Magic</button>
+        <hr>
+        <br>
+        <br>
+
+        <a href="https://google.com">GOOGLE</a>
+        <br>
+        <a href="https://facebook.com">FACEBOOK</a>
+        <br>
+        <a href="https://facebook.com">FACEBOOK</a>
+        <script>
+            var color_array = ['red','green','blue','orange','pink'];
+            
+            function magic() {
+                var para_array = document.getElementsByClassName('changer');
+                for (var i = 0; i < 3; i++) {
+                    var random_no = Math.floor(Math.random() * 6);
+                    para_array[i].style.color = color_array[random_no]; 
+                }
+            }
+
+            function clicker(a) {
+                alert(a.getAttribute('href'));
+            }
+
+            var els = document.getElementsByTagName('a');
+            for (var i = 0; i < els.length; i++){
+                // var click_list = els.getAttribute('href');
+                els[i].setAttribute('onclick',"clicker(this)");           }
+        </script>
+    </body>
+</html>
